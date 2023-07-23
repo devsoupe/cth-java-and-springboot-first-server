@@ -41,12 +41,24 @@ public class UserController {
 
     @PutMapping("/user")
     public void updateUser(@RequestBody UserUpdateRequest request) {
+        String readSql = "SELECT * FROM user WHERE id = ?";
+        boolean isUserNotExist = jdbcTemplate.query(readSql, (rs, rowNum) -> 0, request.getId()).isEmpty();
+        if (isUserNotExist) {
+            throw new IllegalArgumentException();
+        }
+
         String sql = "UPDATE user SET name = ? WHERE id = ?";
         jdbcTemplate.update(sql, request.getName(), request.getId());
     }
 
     @DeleteMapping("/user")
     public void deleteUser(@RequestParam String name) {
+        String readSql = "SELECT * FROM user WHERE name = ?";
+        boolean isUserNotExist = jdbcTemplate.query(readSql, (rs, rowNum) -> 0, name).isEmpty();
+        if (isUserNotExist) {
+            throw new IllegalArgumentException();
+        }
+
         String sql = "DELETE FROM user WHERE name = ?";
         jdbcTemplate.update(sql, name);
     }
@@ -54,5 +66,10 @@ public class UserController {
     @GetMapping("/fruit")
     public Fruit fruit() {
         return new Fruit("바나나", 2000);
+    }
+
+    @GetMapping("/user/error-test")
+    public void errorTest() {
+        throw new IllegalArgumentException();
     }
 }
