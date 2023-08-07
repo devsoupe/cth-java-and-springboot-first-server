@@ -1,6 +1,6 @@
 package com.group.libraryapp.repository.fruit;
 
-import com.group.libraryapp.controller.user.Fruit;
+import com.group.libraryapp.domain.fruit.Fruit;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

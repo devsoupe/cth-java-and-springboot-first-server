@@ -1,10 +1,10 @@
 package com.group.libraryapp.controller.user;
 
+import com.group.libraryapp.domain.fruit.Fruit;
 import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
 import com.group.libraryapp.service.fruit.FruitService;
-import com.group.libraryapp.service.user.UserServiceV1;
 import com.group.libraryapp.service.user.UserServiceV2;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
