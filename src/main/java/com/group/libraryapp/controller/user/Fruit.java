@@ -2,6 +2,12 @@ package com.group.libraryapp.controller.user;
 
 public class Fruit {
 
+    private Long id;
+
+    protected Fruit() {
+
+    }
+
     private String name;
     private int price;
 
@@ -17,5 +23,4 @@ public class Fruit {
     public int getPrice() {
         return price;
     }
-
 }
